@@ -1,0 +1,59 @@
+
+[[ num_a = [100, 200, 300, 400, 500, 600, 700, 800, 900, 1000] ]] %[[num_a]] - number of actin filaments
+
+%% This is the configuration template file for the filament only simulation: No Treadmilling + No Steric
+
+%% This simulation varies the number of actin filaments. In the poster presentation, this results from this simulation are found under "Steric Interactions and Treadmilling Filaments Modulate the Pressure Against the Boundary."
+
+
+%-----------------------------------------------------------------------------------
+% Setting up the system
+
+set simul system
+{
+    dim = 3 % 3 dimensional
+    time_step = 0.01 % units = [s]
+    viscosity = 0.5 
+    kT = 0.0042 % room temperature
+    display = ( back_color=gray )
+}
+
+set space cell
+{
+    shape = sphere
+}
+
+new cell
+{
+    radius = 1 % units = [μm]
+}
+
+
+%-----------------------------------------------------------------------------------
+% Creating the filaments 
+
+set fiber actin
+{
+    rigidity = 0.075 % bending elastic modulus = 0.075 pN.μm^2
+    segmentation = 0.02 % units = [μm]
+    confine = inside, 100, % cell stiffness = 100 pN/μm
+    display = (line=0.5, 1; color=white);
+}
+
+new [[num_a]] actin 
+{
+    length = 0.5 % units = [μm]
+}
+
+
+%-----------------------------------------------------------------------------------
+% Run the simulation 
+% 30000 iter * 0.01 time step = 300 seconds
+% records a frame each second
+
+run 30000 system 
+{
+    nb_frames = 300
+}
+
+

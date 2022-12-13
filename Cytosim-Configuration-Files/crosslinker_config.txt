@@ -1,0 +1,92 @@
+
+[[ num_a =  [250, 500, 750, 1000] ]] %[[num_a]] - number of actin filaments
+[[ num_c = [0, 125, 250, 375, 500, 625, 750, 875, 1000] ]] %[[num_c]] - number of crosslinkers
+
+%% This is the configuration template file for the crosslinker simulation. 
+
+%% Final simulation -- This model varies the number of crosslinkers and filaments. In the poster presentation, the results of these simulations are found under "Crosslinker to Filament Ratio Regulates Cluster Formation". The data analysis found that higher densities of crosslinkers caused cluster formations nearing the center of the cell, which in turn caused less pressure applied to the boundary. 
+
+
+
+%-----------------------------------------------------------------------------------
+% Setting up the system
+
+set simul system
+{
+    dim = 3 % 3 dimensional
+    time_step = 0.01 % units = [s]
+    viscosity = 0.5
+    kT = 0.0042 % room temperature
+    steric = 1, 1000
+    steric_max_range = 0.05
+    display = ( back_color=gray )
+}
+
+set space cell
+{
+    shape = sphere
+}
+
+new cell
+{
+    radius = 1 % units = [μm]
+}
+
+
+%-----------------------------------------------------------------------------------
+% Creating the filaments 
+
+set fiber actin
+{
+    rigidity = 0.075 % bending elastic modulus = 0.075 pN.μm^2
+    segmentation = 0.02 % units = [μm]
+    confine = inside, 100, % cell stiffness = 100 pN/μm
+    display = (line=0.5, 1; color=white;);
+    steric = 1, 0.005
+}
+
+new [[num_a]] actin 
+{
+    length = 0.5 % units = [μm]
+}
+
+
+%-----------------------------------------------------------------------------------
+% Creating the crosslinkers
+
+set hand binder
+{    
+    binding_rate = 5
+    binding_range = 0.0175
+    unbinding_rate = 0.1
+    unbinding_force = inf
+    display = ( color=yellow; size=4; )
+}
+
+set couple crosslinker
+{
+    hand1 = binder 
+    hand2 = binder
+    diffusion = 10
+    stiffness = 250
+    length = 0.035
+    activity = bridge 
+}
+
+new [[num_c]] crosslinker
+{
+}
+
+
+
+%-----------------------------------------------------------------------------------
+% Run the simulation 
+% 30000 iter * 0.01 time step = 300 seconds
+% records a frame each second
+
+run 30000 system 
+{
+    nb_frames = 300
+}
+
+
