@@ -9,6 +9,8 @@ conducted data analysis on the results.
 
 ## Description of files/folders in CTBP-REU-Cytosim Repo:
 
+**Final_Poster_Lilly_Roelofs_2.pdf** - This the poster I created for our end-of-the-program presentations. The scripts below directly created the figures and data analysis in this poster.
+
 ### Python_Files Folder
 
 **bash_scripts.py** - Creates a bash script per folder to run the Cytosim configuration file on a SLURM computer cluster. Automatically varies the time allocation by reading the configuration file and adding additional time based on the varied parameter value. 
