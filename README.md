@@ -29,3 +29,6 @@ conducted data analysis on the results.
 
 **compare_fiber_confinement_cross.py** - Plots the mean fiber confinement pressure against the number of crosslinkers including error bars. Considers varying numbers of actin filaments [250, 500, 750, 1000]. The input of this script, output.xlsx/output_divided.xlsx, is produced by read_fiber_confinement.py.
 
+### Cytosim Configuration Files Folder
+
+This folder contains examples of a few of the configuration files I created for my simulations. Further details can be found in the files, and documentation for these can be found on the Cytosim gitlab page linked above. 
