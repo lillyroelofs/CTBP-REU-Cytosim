@@ -17,4 +17,6 @@ conducted data analysis on the results.
 
 **distance_segmentation.py** - Parses one of Cytosim's output files, fiber_point.txt, to extract the distance from the center for each point on each fiber in every frame. Uses this information to create a histogram representing the frequencies of the fiber point's distance. These frequencies are 4*pi*(r2^3 - r1^3) normalized, bar plotted, then exported to an excel sheet (histogram_curve.xlsx)
 
+ **read_fiber_confinement.py** - Parses the Cytosim output file fiber_confinement.txt to extract the cumulative force applied by the fibers against the simulation boundary per frame. Has an option to normalize the force by the number of actin filaments. Plots the fiber confinement force against time. Exports the total mean fiber confinement with the bootstrapped lower/upper confidence intervals as an excel sheet (output_divided.xlsx or output.xlsx). 
+
 **circle_heatmap.py** - Creates a circular heatmap from the histogram of the filament density along the radius of the simulation space. The input of this function, histogram_curve.xlsx, is produced by *distance_segmentation.py*. This file normalizes the color bar across all plots, and it provides 2 simulation options: filament simulations, crosslinker simulations.
