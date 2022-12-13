@@ -21,4 +21,6 @@ conducted data analysis on the results.
  
 **compare_fiber_confinement_filaments_ALL.py** - Plots the mean fiber confinement pressure against the number of actin filaments including error bars. Considers treadmilling vs no treadmilling and steric interactions vs no steric. 
 
+**compare_fiber_confinement_cross.py** - Plots the mean fiber confinement pressure against the number of crosslinkers including error bars. Considers varying numbers of actin filaments [250, 500, 750, 1000]. 
+
 **circle_heatmap.py** - Creates a circular heatmap from the histogram of the filament density along the radius of the simulation space. The input of this function, histogram_curve.xlsx, is produced by *distance_segmentation.py*. This file normalizes the color bar across all plots, and it provides 2 simulation options: filament simulations, crosslinker simulations.
