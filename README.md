@@ -9,7 +9,7 @@ conducted data analysis on the results.
 
 ## Description of files/folders in CTBP-REU-Cytosim Repo:
 
-**Final_Poster_Lilly_Roelofs_2.pdf** - This the poster I created for our end-of-the-program presentations. The scripts below directly created the figures and data analysis in this poster.
+**Final_Poster_Lilly_Roelofs_2.pdf** - This is the poster I created for our end-of-the-program presentation. The scripts below directly created the figures and data analysis in this poster presentation.
 
 ### Python_Files Folder
 
